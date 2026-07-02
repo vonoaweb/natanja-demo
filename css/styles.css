@@ -43,28 +43,6 @@ button { font-family: inherit; cursor: pointer; }
 .container { width: min(1200px, 92%); margin-inline: auto; }
 .accent { color: var(--accent); }
 
-/* ============ CURSOR ============ */
-.cursor-dot, .cursor-ring {
-  position: fixed; top: 0; left: 0; z-index: 1100;
-  pointer-events: none; border-radius: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-@media (hover: hover) and (pointer: fine) {
-  .cursor-dot, .cursor-ring { display: block; }
-}
-.cursor-dot { width: 7px; height: 7px; background: var(--accent); }
-.cursor-ring {
-  width: 38px; height: 38px;
-  border: 1.5px solid rgba(249, 115, 22, 0.55);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-}
-.cursor-ring.hovering {
-  width: 62px; height: 62px;
-  background: rgba(249, 115, 22, 0.08);
-  border-color: var(--accent);
-}
-
 /* ============ PRELOADER ============ */
 .preloader {
   position: fixed; inset: 0; z-index: 1000;
@@ -797,7 +775,6 @@ button { font-family: inherit; cursor: pointer; }
   .nosotros__img-small { display: none; }
   .nosotros__badge { left: 4%; bottom: 30px; }
   .nosotros__media { padding-bottom: 60px; }
-  .cursor-dot, .cursor-ring { display: none !important; }
 }
 
 /* Reduced motion */

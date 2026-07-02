@@ -91,29 +91,6 @@ onScroll();
 
 backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-// ---------- Cursor personalizado ----------
-const cursorDot = document.getElementById("cursorDot");
-const cursorRing = document.getElementById("cursorRing");
-let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-document.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursorDot.style.left = mouseX + "px";
-  cursorDot.style.top = mouseY + "px";
-});
-(function animateRing() {
-  ringX += (mouseX - ringX) * 0.16;
-  ringY += (mouseY - ringY) * 0.16;
-  cursorRing.style.left = ringX + "px";
-  cursorRing.style.top = ringY + "px";
-  requestAnimationFrame(animateRing);
-})();
-document.querySelectorAll("a, button, .project-card, .faq__item summary").forEach((el) => {
-  el.addEventListener("mouseenter", () => cursorRing.classList.add("hovering"));
-  el.addEventListener("mouseleave", () => cursorRing.classList.remove("hovering"));
-});
-
 // ---------- Botones magnéticos ----------
 if (window.matchMedia("(hover: hover)").matches) {
   document.querySelectorAll(".magnetic").forEach((btn) => {
