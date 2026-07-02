@@ -22,8 +22,13 @@
         <rect class="bar bar-3" x="40" y="30" width="11" height="22" />
       </svg>
       <span class="preloader__text">NATANJA</span>
+      <span class="preloader__bar"><span id="preloaderFill"></span></span>
     </div>
   </div>
+
+  <!-- ===== CURSOR (desktop) ===== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -45,7 +50,8 @@
         <a href="#nosotros" class="nav__link">Nosotros</a>
         <a href="#servicios" class="nav__link">Servicios</a>
         <a href="#proyectos" class="nav__link">Proyectos</a>
-        <a href="#proceso" class="nav__link">Proceso</a>
+        <a href="#testimonios" class="nav__link">Clientes</a>
+        <a href="#faq" class="nav__link">FAQ</a>
         <a href="#contacto" class="nav__link">Contacto</a>
       </nav>
 
@@ -62,6 +68,7 @@
     <div class="hero__bg" id="heroBg">
       <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80&auto=format&fit=crop" alt="Estructura moderna de concreto al atardecer" />
       <div class="hero__overlay"></div>
+      <div class="hero__grain"></div>
     </div>
 
     <svg class="hero__lines" viewBox="0 0 400 500" fill="none" aria-hidden="true">
@@ -70,16 +77,21 @@
     </svg>
 
     <div class="container hero__content">
-      <p class="hero__eyebrow reveal-line"><span>Construimos</span></p>
-      <h1 class="hero__title">
-        <span class="reveal-line"><span>Estructuras</span></span>
-        <span class="reveal-line"><span>que dan forma</span></span>
-        <span class="reveal-line"><span class="accent">a tus proyectos</span></span>
+      <p class="hero__eyebrow" data-hero="eyebrow"><span class="tag-line"></span>Constructora en Monterrey, N.L.</p>
+      <h1 class="hero__title" id="heroTitle">
+        <span class="line">Estructuras</span>
+        <span class="line">que dan forma</span>
+        <span class="line accent">a tus proyectos</span>
       </h1>
-      <p class="hero__sub reveal-fade">Especialistas en estructuras de concreto de alta calidad para proyectos comerciales, industriales y habitacionales.</p>
-      <div class="hero__actions reveal-fade">
-        <a href="#proyectos" class="btn btn--outline">Conoce más <span class="arrow">→</span></a>
-        <a href="#contacto" class="btn btn--solid">Cotizar proyecto</a>
+      <p class="hero__sub" data-hero="fade">Especialistas en estructuras de concreto de alta calidad para proyectos comerciales, industriales y habitacionales.</p>
+      <div class="hero__actions" data-hero="fade">
+        <a href="#proyectos" class="btn btn--solid magnetic">Ver proyectos <span class="arrow">→</span></a>
+        <a href="#contacto" class="btn btn--outline magnetic">Cotizar proyecto</a>
+      </div>
+      <div class="hero__badges" data-hero="fade">
+        <div class="hero__badge"><strong>15+</strong> años de experiencia</div>
+        <div class="hero__badge"><strong>150+</strong> proyectos entregados</div>
+        <div class="hero__badge"><strong>100%</strong> entregas en tiempo</div>
       </div>
     </div>
 
@@ -107,43 +119,54 @@
   <!-- ===== NOSOTROS ===== -->
   <section class="section nosotros" id="nosotros">
     <div class="container nosotros__grid">
-      <div class="nosotros__text">
-        <p class="section__tag reveal-fade"><span class="tag-line"></span> Nosotros</p>
-        <h2 class="section__title reveal-fade">Construcción con <br />experiencia y compromiso</h2>
-        <p class="reveal-fade">En Natanja Constructora transformamos ideas en estructuras de concreto sólidas, seguras y duraderas.</p>
-        <p class="reveal-fade">Nuestro compromiso es ofrecer soluciones integrales con los más altos estándares de calidad, cumpliendo cada objetivo con precisión y eficiencia.</p>
-        <a href="#proceso" class="link-arrow reveal-fade">Conoce nuestra historia <span class="arrow">→</span></a>
+      <div class="nosotros__media">
+        <div class="img-reveal nosotros__img-main">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80&auto=format&fit=crop" alt="Estructura de concreto en construcción" loading="lazy" />
+        </div>
+        <div class="img-reveal nosotros__img-small">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=80&auto=format&fit=crop" alt="Ingeniero supervisando obra" loading="lazy" />
+        </div>
+        <div class="nosotros__badge" data-reveal>
+          <span class="nosotros__badge-num"><span class="counter" data-target="15">0</span>+</span>
+          <span>Años construyendo Nuevo León</span>
+        </div>
       </div>
 
-      <div class="nosotros__cards">
-        <article class="feature-card reveal-fade" style="--d:0s">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2h-1v-3a7 7 0 0 0-7-7Zm-1 2.08V10h-4a5 5 0 0 1 4-4.92ZM13 10V5.08A5 5 0 0 1 17 10h-4ZM6 17h12v2H6z"/></svg>
-          </div>
-          <h3>Experiencia</h3>
-          <p>Más de 15 años ejecutando proyectos de alto impacto.</p>
-        </article>
-        <article class="feature-card reveal-fade" style="--d:.1s">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.25 3.4 10.14 8 11 4.6-.86 8-5.75 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 4.19-2.63 8.15-6 9-3.37-.85-6-4.81-6-9V6.43l6-2.25ZM11 14.6l-2.3-2.3 1.4-1.4.9.9 3-3 1.4 1.4-4.4 4.4Z"/></svg>
-          </div>
-          <h3>Calidad</h3>
-          <p>Concreto de alta resistencia y procesos certificados.</p>
-        </article>
-        <article class="feature-card reveal-fade" style="--d:.2s">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm7 8a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0-4a1 1 0 1 1-1 1 1 1 0 0 1 1-1ZM9 13c-3.31 0-7 1.67-7 5v3h14v-3c0-3.33-3.69-5-7-5Zm5 6H4v-1c0-1.54 2.47-3 5-3s5 1.46 5 3Zm2-5.9a7.2 7.2 0 0 1 2 .9 4.13 4.13 0 0 1 2 4v3h2v-3c0-2.66-2.67-4.34-6-4.9Z"/></svg>
-          </div>
-          <h3>Compromiso</h3>
-          <p>Cumplimos lo que prometemos, en tiempo y forma.</p>
-        </article>
-        <article class="feature-card reveal-fade" style="--d:.3s">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5a6.22 6.22 0 0 0 1.75 3.75C7 8 17 8 17 8Z"/></svg>
-          </div>
-          <h3>Sostenibilidad</h3>
-          <p>Construimos pensando en el futuro y el entorno.</p>
-        </article>
+      <div class="nosotros__text">
+        <p class="section__tag" data-reveal><span class="tag-line"></span> Nosotros</p>
+        <h2 class="section__title" data-reveal>Construcción con <br />experiencia y compromiso</h2>
+        <p data-reveal>En Natanja Constructora transformamos ideas en estructuras de concreto sólidas, seguras y duraderas. Desde 2011 hemos entregado más de 150 proyectos en toda el área metropolitana de Monterrey.</p>
+        <p data-reveal>Nuestro compromiso es ofrecer soluciones integrales con los más altos estándares de calidad, cumpliendo cada objetivo con precisión y eficiencia.</p>
+
+        <ul class="nosotros__checks" data-reveal>
+          <li>Ingenieros certificados y mano de obra especializada</li>
+          <li>Concreto premezclado de plantas certificadas</li>
+          <li>Garantía estructural por escrito en cada entrega</li>
+          <li>Reportes de avance semanales con evidencia fotográfica</li>
+        </ul>
+
+        <div class="nosotros__cards">
+          <article class="feature-card" data-reveal>
+            <div class="feature-card__icon"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2h-1v-3a7 7 0 0 0-7-7Zm-1 2.08V10h-4a5 5 0 0 1 4-4.92ZM13 10V5.08A5 5 0 0 1 17 10h-4ZM6 17h12v2H6z"/></svg></div>
+            <h3>Experiencia</h3>
+            <p>Más de 15 años ejecutando proyectos de alto impacto.</p>
+          </article>
+          <article class="feature-card" data-reveal>
+            <div class="feature-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.25 3.4 10.14 8 11 4.6-.86 8-5.75 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 4.19-2.63 8.15-6 9-3.37-.85-6-4.81-6-9V6.43l6-2.25ZM11 14.6l-2.3-2.3 1.4-1.4.9.9 3-3 1.4 1.4-4.4 4.4Z"/></svg></div>
+            <h3>Calidad</h3>
+            <p>Concreto de alta resistencia y procesos certificados.</p>
+          </article>
+          <article class="feature-card" data-reveal>
+            <div class="feature-card__icon"><svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm7 8a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0-4a1 1 0 1 1-1 1 1 1 0 0 1 1-1ZM9 13c-3.31 0-7 1.67-7 5v3h14v-3c0-3.33-3.69-5-7-5Zm5 6H4v-1c0-1.54 2.47-3 5-3s5 1.46 5 3Zm2-5.9a7.2 7.2 0 0 1 2 .9 4.13 4.13 0 0 1 2 4v3h2v-3c0-2.66-2.67-4.34-6-4.9Z"/></svg></div>
+            <h3>Compromiso</h3>
+            <p>Cumplimos lo que prometemos, en tiempo y forma.</p>
+          </article>
+          <article class="feature-card" data-reveal>
+            <div class="feature-card__icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5a6.22 6.22 0 0 0 1.75 3.75C7 8 17 8 17 8Z"/></svg></div>
+            <h3>Sostenibilidad</h3>
+            <p>Construimos pensando en el futuro y el entorno.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -153,43 +176,61 @@
     <div class="container">
       <div class="section__head">
         <div>
-          <p class="section__tag reveal-fade"><span class="tag-line"></span> Servicios</p>
-          <h2 class="section__title reveal-fade">Soluciones integrales <br />de construcción</h2>
+          <p class="section__tag" data-reveal><span class="tag-line"></span> Servicios</p>
+          <h2 class="section__title" data-reveal>Soluciones integrales <br />de construcción</h2>
         </div>
+        <p class="section__desc" data-reveal>Cubrimos todo el ciclo del proyecto: desde la cimentación hasta la entrega de llaves, con un solo responsable.</p>
       </div>
 
       <div class="servicios__grid">
-        <article class="service-card reveal-fade" style="--d:0s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">01</span>
           <h3>Estructuras de concreto</h3>
           <p>Cimentaciones, losas, muros y elementos estructurales con concreto de alta resistencia.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
-        <article class="service-card reveal-fade" style="--d:.08s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">02</span>
           <h3>Obra comercial</h3>
           <p>Plazas, oficinas y locales comerciales construidos para operar desde el día uno.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
-        <article class="service-card reveal-fade" style="--d:.16s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">03</span>
           <h3>Obra industrial</h3>
           <p>Naves, plantas y bodegas con estructuras diseñadas para alto rendimiento.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
-        <article class="service-card reveal-fade" style="--d:.24s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">04</span>
           <h3>Obra habitacional</h3>
           <p>Residencias y desarrollos verticales con acabados de primer nivel.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
-        <article class="service-card reveal-fade" style="--d:.32s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">05</span>
           <h3>Supervisión de obra</h3>
           <p>Control de calidad, tiempos y costos en cada etapa del proyecto.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
-        <article class="service-card reveal-fade" style="--d:.4s">
+        <article class="service-card" data-reveal>
           <span class="service-card__num">06</span>
           <h3>Administración de proyectos</h3>
           <p>Gestión integral: permisos, proveedores, cronogramas y presupuesto.</p>
+          <span class="service-card__link">Cotizar →</span>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE STRIP ===== -->
+  <section class="quote-strip">
+    <div class="quote-strip__bg">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+    </div>
+    <div class="container">
+      <h2 class="quote-strip__text" id="quoteText">“El concreto bien hecho no se nota.<br /><span class="accent">Se hereda.</span>”</h2>
+      <p class="quote-strip__author" data-reveal>— Ing. Arturo Natanja, Director General</p>
     </div>
   </section>
 
@@ -198,10 +239,10 @@
     <div class="container">
       <div class="section__head">
         <div>
-          <p class="section__tag reveal-fade"><span class="tag-line"></span> Proyectos destacados</p>
-          <h2 class="section__title reveal-fade">Estructuras de concreto <br />para cada necesidad</h2>
+          <p class="section__tag" data-reveal><span class="tag-line"></span> Proyectos destacados</p>
+          <h2 class="section__title" data-reveal>Estructuras de concreto <br />para cada necesidad</h2>
         </div>
-        <div class="filters reveal-fade" id="filters">
+        <div class="filters" data-reveal id="filters">
           <button class="filter active" data-filter="todos">Todos</button>
           <button class="filter" data-filter="habitacional">Habitacional</button>
           <button class="filter" data-filter="comercial">Comercial</button>
@@ -210,10 +251,10 @@
       </div>
 
       <div class="proyectos__grid" id="projectsGrid">
-        <article class="project-card reveal-fade" data-cat="habitacional">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&auto=format&fit=crop" alt="Casa Cumbres" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="habitacional"
+          data-desc="Residencia de 3 niveles con estructura de concreto aparente, doble altura en sala y cantiliver de 6 metros sobre el jardín."
+          data-area="620 m²" data-year="2025" data-time="14 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&auto=format&fit=crop" alt="Casa Cumbres" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Habitacional</span>
             <h3>Casa Cumbres</h3>
@@ -222,10 +263,10 @@
           <span class="project-card__arrow">→</span>
         </article>
 
-        <article class="project-card reveal-fade" data-cat="comercial">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&auto=format&fit=crop" alt="Plaza Vía Cordillera" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="comercial"
+          data-desc="Plaza comercial de 2 niveles con 24 locales, estacionamiento subterráneo y losa postensada de claros largos."
+          data-area="8,400 m²" data-year="2024" data-time="18 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&auto=format&fit=crop" alt="Plaza Vía Cordillera" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Comercial</span>
             <h3>Plaza Vía Cordillera</h3>
@@ -234,10 +275,10 @@
           <span class="project-card__arrow">→</span>
         </article>
 
-        <article class="project-card reveal-fade" data-cat="industrial">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop" alt="Nave Logística Apodaca" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="industrial"
+          data-desc="Nave logística con muros tilt-up, piso industrial superplano y andenes de carga para 32 tráileres."
+          data-area="15,000 m²" data-year="2025" data-time="10 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop" alt="Nave Logística Apodaca" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Industrial</span>
             <h3>Nave Logística</h3>
@@ -246,10 +287,10 @@
           <span class="project-card__arrow">→</span>
         </article>
 
-        <article class="project-card reveal-fade" data-cat="habitacional">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80&auto=format&fit=crop" alt="Residencia Valle Alto" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="habitacional"
+          data-desc="Residencia contemporánea con alberca en cantiliver, muros de concreto martelinado y domótica integral."
+          data-area="480 m²" data-year="2024" data-time="12 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80&auto=format&fit=crop" alt="Residencia Valle Alto" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Habitacional</span>
             <h3>Residencia Valle Alto</h3>
@@ -258,10 +299,10 @@
           <span class="project-card__arrow">→</span>
         </article>
 
-        <article class="project-card reveal-fade" data-cat="comercial">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80&auto=format&fit=crop" alt="Corporativo Valle Oriente" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="comercial"
+          data-desc="Torre corporativa de 12 niveles con núcleo de concreto de alta resistencia y fachada flotante de cristal."
+          data-area="22,000 m²" data-year="2023" data-time="26 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80&auto=format&fit=crop" alt="Corporativo Valle Oriente" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Comercial</span>
             <h3>Corporativo Valle Oriente</h3>
@@ -270,10 +311,10 @@
           <span class="project-card__arrow">→</span>
         </article>
 
-        <article class="project-card reveal-fade" data-cat="industrial">
-          <div class="project-card__img">
-            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop" alt="Planta Industrial Santa Catarina" loading="lazy" />
-          </div>
+        <article class="project-card" data-reveal data-cat="industrial"
+          data-desc="Planta de manufactura con cimentación para maquinaria pesada, trincheras de proceso y subestación propia."
+          data-area="11,500 m²" data-year="2024" data-time="15 meses">
+          <div class="project-card__img"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop" alt="Planta Industrial Santa Catarina" loading="lazy" /></div>
           <div class="project-card__info">
             <span class="project-card__cat">Industrial</span>
             <h3>Planta Santa Catarina</h3>
@@ -285,22 +326,43 @@
     </div>
   </section>
 
+  <!-- ===== PROJECT LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__panel">
+      <button class="lightbox__close" data-close aria-label="Cerrar">✕</button>
+      <div class="lightbox__img"><img id="lbImg" src="" alt="" /></div>
+      <div class="lightbox__body">
+        <span class="project-card__cat" id="lbCat"></span>
+        <h3 id="lbTitle"></h3>
+        <p class="lightbox__loc" id="lbLoc"></p>
+        <p class="lightbox__desc" id="lbDesc"></p>
+        <div class="lightbox__meta">
+          <div><strong id="lbArea"></strong><span>Superficie</span></div>
+          <div><strong id="lbYear"></strong><span>Año</span></div>
+          <div><strong id="lbTime"></strong><span>Duración</span></div>
+        </div>
+        <a href="#contacto" class="btn btn--solid" data-close>Quiero algo así <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== STATS ===== -->
   <section class="stats">
     <div class="container stats__grid">
-      <div class="stat reveal-fade">
+      <div class="stat" data-reveal>
         <span class="stat__num"><span class="counter" data-target="150">0</span>+</span>
         <span class="stat__label">Proyectos<br />completados</span>
       </div>
-      <div class="stat reveal-fade" style="--d:.1s">
+      <div class="stat" data-reveal>
         <span class="stat__num"><span class="counter" data-target="120">0</span>+</span>
         <span class="stat__label">Clientes<br />satisfechos</span>
       </div>
-      <div class="stat reveal-fade" style="--d:.2s">
+      <div class="stat" data-reveal>
         <span class="stat__num"><span class="counter" data-target="250">0</span>+</span>
         <span class="stat__label">Profesionales<br />en nuestro equipo</span>
       </div>
-      <div class="stat reveal-fade" style="--d:.3s">
+      <div class="stat" data-reveal>
         <span class="stat__num"><span class="counter" data-target="15">0</span>+</span>
         <span class="stat__label">Años de<br />experiencia</span>
       </div>
@@ -310,30 +372,135 @@
   <!-- ===== PROCESO ===== -->
   <section class="section proceso" id="proceso">
     <div class="container">
-      <p class="section__tag reveal-fade"><span class="tag-line"></span> Nuestro proceso</p>
-      <h2 class="section__title reveal-fade">De la idea a la <br />entrega de llaves</h2>
+      <p class="section__tag" data-reveal><span class="tag-line"></span> Nuestro proceso</p>
+      <h2 class="section__title" data-reveal>De la idea a la <br />entrega de llaves</h2>
 
-      <div class="proceso__timeline">
-        <div class="step reveal-fade" style="--d:0s">
+      <div class="proceso__timeline" id="timeline">
+        <div class="proceso__line"><span id="timelineFill"></span></div>
+        <div class="step" data-reveal>
           <span class="step__num">01</span>
           <h3>Diagnóstico</h3>
-          <p>Escuchamos tu proyecto, visitamos el terreno y definimos alcance.</p>
+          <p>Escuchamos tu proyecto, visitamos el terreno y definimos alcance sin costo.</p>
         </div>
-        <div class="step reveal-fade" style="--d:.12s">
+        <div class="step" data-reveal>
           <span class="step__num">02</span>
           <h3>Propuesta</h3>
-          <p>Presupuesto detallado, cronograma y plan de ejecución.</p>
+          <p>Presupuesto detallado, cronograma de obra y plan de ejecución en 10 días.</p>
         </div>
-        <div class="step reveal-fade" style="--d:.24s">
+        <div class="step" data-reveal>
           <span class="step__num">03</span>
           <h3>Construcción</h3>
-          <p>Ejecución con supervisión permanente y reportes de avance.</p>
+          <p>Ejecución con supervisión permanente y reportes semanales de avance.</p>
         </div>
-        <div class="step reveal-fade" style="--d:.36s">
+        <div class="step" data-reveal>
           <span class="step__num">04</span>
           <h3>Entrega</h3>
-          <p>Revisión final, garantías por escrito y entrega en tiempo.</p>
+          <p>Revisión final contigo, garantías por escrito y entrega en tiempo.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIOS ===== -->
+  <section class="section testimonios" id="testimonios">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <p class="section__tag" data-reveal><span class="tag-line"></span> Testimonios</p>
+          <h2 class="section__title" data-reveal>Lo que dicen <br />nuestros clientes</h2>
+        </div>
+      </div>
+
+      <div class="slider" id="slider">
+        <div class="slider__track" id="sliderTrack">
+          <blockquote class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p>“Entregaron la nave dos semanas antes de lo pactado y con la calidad exacta que prometieron. El reporte semanal con fotos nos dio una tranquilidad enorme durante toda la obra.”</p>
+            <footer>
+              <strong>Roberto Garza</strong>
+              <span>Director de Operaciones · Logística del Norte</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p>“Construyeron nuestra casa en Cumbres y el resultado superó el render. Cero sorpresas en el presupuesto: lo que cotizaron fue lo que pagamos.”</p>
+            <footer>
+              <strong>Mariana Elizondo</strong>
+              <span>Propietaria · Casa Cumbres</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p>“Llevamos tres plazas comerciales con Natanja. Son el único contratista al que le firmamos sin pedir segunda cotización. Su supervisión de obra vale cada peso.”</p>
+            <footer>
+              <strong>Arq. Daniel Sepúlveda</strong>
+              <span>Socio Director · Desarrollos MTY</span>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="slider__nav">
+          <button class="slider__arrow" id="prevSlide" aria-label="Anterior">←</button>
+          <div class="slider__dots" id="sliderDots"></div>
+          <button class="slider__arrow" id="nextSlide" aria-label="Siguiente">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENTES ===== -->
+  <section class="clientes">
+    <div class="container">
+      <p class="clientes__label" data-reveal>Constructora de confianza para</p>
+    </div>
+    <div class="marquee marquee--logos" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="cliente-logo">GRUPO ALTURA</span>
+        <span class="cliente-logo">DESARROLLOS MTY</span>
+        <span class="cliente-logo">INMOBILIARIA SIERRA</span>
+        <span class="cliente-logo">FIBRA NORTE</span>
+        <span class="cliente-logo">VERTICAL LIVING</span>
+        <span class="cliente-logo">LOGÍSTICA DEL NORTE</span>
+        <span class="cliente-logo">GRUPO ALTURA</span>
+        <span class="cliente-logo">DESARROLLOS MTY</span>
+        <span class="cliente-logo">INMOBILIARIA SIERRA</span>
+        <span class="cliente-logo">FIBRA NORTE</span>
+        <span class="cliente-logo">VERTICAL LIVING</span>
+        <span class="cliente-logo">LOGÍSTICA DEL NORTE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section faq" id="faq">
+    <div class="container faq__grid">
+      <div>
+        <p class="section__tag" data-reveal><span class="tag-line"></span> Preguntas frecuentes</p>
+        <h2 class="section__title" data-reveal>Resolvemos <br />tus dudas</h2>
+        <p data-reveal class="section__desc">¿No encuentras tu pregunta? Escríbenos por WhatsApp y te respondemos el mismo día.</p>
+        <a href="#contacto" class="btn btn--outline magnetic" data-reveal>Contactar <span class="arrow">→</span></a>
+      </div>
+
+      <div class="faq__list">
+        <details class="faq__item" data-reveal>
+          <summary>¿Cotizan sin compromiso? <span class="faq__icon">+</span></summary>
+          <p>Sí. La visita al terreno, el diagnóstico y la cotización inicial no tienen costo. Entregamos presupuesto detallado por partidas en un máximo de 10 días hábiles.</p>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>¿Trabajan fuera del área metropolitana de Monterrey? <span class="faq__icon">+</span></summary>
+          <p>Nuestra base es Monterrey y su zona metropolitana, pero ejecutamos proyectos industriales y comerciales en todo Nuevo León y estados vecinos según el alcance.</p>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>¿Qué garantía ofrecen? <span class="faq__icon">+</span></summary>
+          <p>Toda obra estructural incluye garantía por escrito de 10 años contra defectos de construcción, además de las garantías de fabricante en materiales e instalaciones.</p>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>¿Cómo controlan tiempos y presupuesto? <span class="faq__icon">+</span></summary>
+          <p>Cada proyecto tiene un cronograma firmado, residentes de obra de tiempo completo y reportes semanales con evidencia fotográfica y avance físico-financiero.</p>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>¿Pueden encargarse de permisos y trámites? <span class="faq__icon">+</span></summary>
+          <p>Sí. Nuestro servicio de administración de proyectos incluye gestión de licencias de construcción, factibilidades y trámites ante municipio y CFE.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -344,9 +511,9 @@
       <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80&auto=format&fit=crop" alt="" loading="lazy" />
     </div>
     <div class="container cta-banner__content">
-      <h2 class="reveal-fade">¿Tienes un proyecto en mente?</h2>
-      <p class="reveal-fade">Platícanos tu idea y recibe una cotización sin compromiso en menos de 48 horas.</p>
-      <a href="#contacto" class="btn btn--solid btn--lg reveal-fade">Cotizar mi proyecto <span class="arrow">→</span></a>
+      <h2 data-reveal>¿Tienes un proyecto en mente?</h2>
+      <p data-reveal>Platícanos tu idea y recibe una cotización sin compromiso en menos de 48 horas.</p>
+      <a href="#contacto" class="btn btn--solid btn--lg magnetic" data-reveal>Cotizar mi proyecto <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -354,25 +521,31 @@
   <section class="section contacto" id="contacto">
     <div class="container contacto__grid">
       <div class="contacto__info">
-        <p class="section__tag reveal-fade"><span class="tag-line"></span> Contacto</p>
-        <h2 class="section__title reveal-fade">Hablemos de <br />tu proyecto</h2>
+        <p class="section__tag" data-reveal><span class="tag-line"></span> Contacto</p>
+        <h2 class="section__title" data-reveal>Hablemos de <br />tu proyecto</h2>
         <ul class="contacto__list">
-          <li class="reveal-fade">
+          <li data-reveal>
             <span class="contacto__icon">📍</span>
             <div><strong>Dirección</strong><br />Av. Universidad 123, Col. Del Valle<br />San Pedro Garza García, N.L.</div>
           </li>
-          <li class="reveal-fade">
+          <li data-reveal>
             <span class="contacto__icon">📞</span>
             <div><strong>Teléfono</strong><br /><a href="tel:+528112345678">(81) 1234 5678</a></div>
           </li>
-          <li class="reveal-fade">
+          <li data-reveal>
             <span class="contacto__icon">✉️</span>
             <div><strong>Correo</strong><br /><a href="mailto:info@natanjaconstructora.com">info@natanjaconstructora.com</a></div>
+          </li>
+          <li data-reveal>
+            <span class="contacto__icon">🕘</span>
+            <div><strong>Horario</strong><br />Lunes a viernes · 9:00 – 18:00<br />Sábado · 9:00 – 13:00</div>
           </li>
         </ul>
       </div>
 
-      <form class="contacto__form reveal-fade" id="contactForm">
+      <form class="contacto__form" id="contactForm" data-reveal>
+        <h3 class="contacto__form-title">Cotiza tu proyecto</h3>
+        <p class="contacto__form-sub">Respuesta en menos de 48 horas hábiles.</p>
         <div class="form-row">
           <div class="form-group">
             <input type="text" id="nombre" required placeholder=" " />
@@ -433,6 +606,7 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#proyectos">Proyectos</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </div>
 
@@ -465,6 +639,8 @@
   </a>
   <button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
