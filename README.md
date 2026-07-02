@@ -13,3 +13,4 @@ Abrir `index.html` en el navegador, o servir con:
 ```
 python -m http.server 3004
 ```
+
